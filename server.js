@@ -72,6 +72,21 @@ app.get('/api/notes', (req, res) => {
     console.info(`${req.method} request received to get notes`);
 })
 
+app.get('/api/notes/:id', (req, res) => {
+    if (req.body && req.params.id) {
+        console.info(`${req.method} request received to get a single note`);
+        const noteId = req.params.id;
+        for (let i = 0; i < notes.length; i++) {
+            const currentNote = note[i];
+            if(currentNote.id === noteId) {
+                res.json(currentNote);
+                return;
+            }
+        }
+        res.json('Note ID not found');
+    }
+})
+
 app.listen(PORT, () =>
     console.log(`App listening at http://localhost:${PORT}`)
 );
