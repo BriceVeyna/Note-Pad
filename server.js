@@ -1,5 +1,5 @@
 const express = require('express');
-const path = reqire('path');
+const path = require('path');
 
 const PORT = process.env.PORT || 3001;
 
@@ -19,5 +19,5 @@ app.get('/notes', (req, res) =>
 );
 
 app.listen(PORT, () =>
-    console.log(`App listening at http://localhost${PORT}`)
+    console.log(`App listening at http://localhost:${PORT}`)
 );
