@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+let notes = require('./db/db.json');
 
 const PORT = process.env.PORT || 3001;
 
@@ -62,6 +63,12 @@ app.post('/api/notes', (req, res) => {
         res.json('Error in adding note')
     }
 });
+
+app.get('/api/notes', (req, res) => {
+    console.log(notes);
+    res.json(notes);
+    console.info(`${req.method} request received to get notes`);
+})
 
 app.listen(PORT, () =>
     console.log(`App listening at http://localhost:${PORT}`)

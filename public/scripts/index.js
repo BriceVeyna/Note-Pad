@@ -28,6 +28,15 @@ const postNote = (note) =>
         console.log('Error in POST request:', error);
     });
 
+const getNotes = () =>
+
+    fetch(`http://localhost${PORT}`, {
+        method: 'GET',
+    })
+    .then((data) => {
+        console.log('Successful GET request:', data);
+
+    })
 saveNote.addEventListener('click', () => {
 
     const newNote = {
@@ -39,3 +48,5 @@ saveNote.addEventListener('click', () => {
         .then(alert(`Note added!`))
         .catch((err) => console.error(err))
 });
+
+getNotes();
